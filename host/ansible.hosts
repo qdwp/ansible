@@ -1,0 +1,6 @@
+[short]
+baidu ansible_host=106.12.200.46
+linux ansible_host=118.25.89.11
+
+[long]
+118.25.89.11
