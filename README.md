@@ -1,10 +1,29 @@
 # Ansible 简单应用
 
+## 安装
+
+### Mac 安装
+
+```bash
+brew install ansible
+```
+
+### 基础配置
+
+ansible 主要有两个配置文件，`ansible.cfg` 和 `hosts` 文件。用来配置 ansible 运行时使用的目录以及指定远程受控机器。
+
+* `ansible.cfg` 文件查找路径顺序:
+  * `./ansible.cfg`
+  * `~/.ansible.cfg`
+  * `/etc/ansible/ansible.cfg`
+
+* `hosts` 的默认路径为 `/etc/ansible/hosts`，也可以在 `ansible.cfg` 中指定目标 `hosts` 文件路径。
+
 ## 示例
 
 ### 本地主控机 ping 远程受控机
 
-```
+```bash
 ansible short -m ping
 
 """
@@ -21,7 +40,7 @@ baidu | SUCCESS => {
 
 ### 在远程受控机执行命令
 
-```
+```bash
 ansible short -m shell -a "ip address"
 
 """
@@ -64,7 +83,7 @@ baidu | CHANGED | rc=0 >>
 
 ### 在远程受控机执行本机脚本
 
-```
+```bash
 ansible short -m script -a "./script/cmd.sh"
 
 """
@@ -73,7 +92,6 @@ ansible short -m script -a "./script/cmd.sh"
 ```
 
 ## 工具模块
-
 
 1. command [执行远程命令，可用 shell 替换]
 
